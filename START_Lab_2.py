@@ -23,7 +23,7 @@ def lab2Question2(number_val):
             fib_seq.append(new_num)
     return fib_seq
 
-#print(lab2Question2(20))
+#print(lab2Question2(7))
 
 def lab2Question3(str1, str2):
     # Create a function that takes in two strings - str1 and str2
@@ -31,6 +31,8 @@ def lab2Question3(str1, str2):
     # For example if str1 = "coding is cool" and str2 = "co" then output should be 2.
     counter = 0
     found = 0 
+    str1 = str1.lower()
+    print(str1)
     # find where the first one is, add counter, then delete and do it again till index/list is empty or no st2 is found
     while found != -1:
         found = str1.find(str2)
@@ -42,15 +44,45 @@ def lab2Question3(str1, str2):
             print(str1)
     return counter
 
-print(lab2Question3('coding is cool, cooking with cockatool', 'oo'))
+#print(lab2Question3('Coding is cool, cooking with cockatool', 'oo'))
 
 def lab2Question4(list1, list2):
     # Create a function that takes in two equal length list of numbers. 
     # Return a list of the element-wise sum of the two lists - i.e. the first element of the output list is the sum of the first elements of the input lists
     # If the condition of the function is not satisfied, return a blank list
-    pass
-
+    sum_list = []
+    if len(list1) == len(list2):
+        for index in range(0,len(list1)):
+            sum_list.append(list1[index]+list2[index])
     return sum_list
+
+#print(lab2Question4([1, 2, 3, 4, 10], [5, 6, 7, 8]))
+
+def isValidPassword(password):
+    # Create a function that takes in a password and returns True if the password is valid, False otherwise
+    # - At least 8 characters long
+    # - Contains at least one uppercase letter
+    # - Contains at least one lowercase letter
+    # - Contains at least one number
+    isValid = {
+        'length': False,
+        'upper' : False,
+        'lower' : False,
+        'number': False,
+    }
+
+    if len(password) >= 8:
+        isValid['length'] = True
+        for letter in password:
+            if letter.isupper():
+                isValid['upper'] = True
+            if letter.islower():
+                isValid['lower'] = True
+            if letter.isdigit():
+                isValid['number'] = True
+
+    result = all(item == True for item in isValid.values())
+    return result
 
 def lab2Question5():
     # Create a function* that asks a user to enter a password that meets the following criteria:
@@ -63,15 +95,25 @@ def lab2Question5():
     # *Note: This function should call another function, called isValidPassword(password), 
     # that takes in a password and returns True if the password is valid, False otherwise.
     # You will need to make that function, exactly as described above. 
-    password = None
-
+    password = input('Please enter a valid password: ')
+    while isValidPassword(password) == False:
+        print('')
+        print(password + ' is invalid')
+        print('The passowrd must meet the criteria: ')
+        print('- At least 8 characters long')
+        print('- Contains at least one uppercase letter')
+        print('- Contains at least one lowercase letter')
+        print('- Contains at least one number')
+        print('')
+        password = input('Please enter a valid password: ')
+    print('Password created successfully')
     return password
 
-def isValidPassword(password):
-    # Create a function that takes in a password and returns True if the password is valid, False otherwise
-    # - At least 8 characters long
-    # - Contains at least one uppercase letter
-    # - Contains at least one lowercase letter
-    # - Contains at least one number
-    pass
+lab2Question5()
+
+
+
+
+
+    
 
