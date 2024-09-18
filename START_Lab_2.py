@@ -109,7 +109,7 @@ def isValidPassword(password):
     result = all(item == True for item in isValid.values())
     return result
 
-lab2Question5()
+#lab2Question5()
 
 
 
