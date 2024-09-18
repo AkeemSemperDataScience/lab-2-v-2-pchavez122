@@ -58,6 +58,31 @@ def lab2Question4(list1, list2):
 
 #print(lab2Question4([1, 2, 3, 4, 10], [5, 6, 7, 8]))
 
+def lab2Question5():
+    # Create a function* that asks a user to enter a password that meets the following criteria:
+    # - At least 8 characters long
+    # - Contains at least one uppercase letter
+    # - Contains at least one lowercase letter
+    # - Contains at least one number
+    # Keep asking the user to enter a password until they enter a valid password.
+    # Return the valid password.
+    # *Note: This function should call another function, called isValidPassword(password), 
+    # that takes in a password and returns True if the password is valid, False otherwise.
+    # You will need to make that function, exactly as described above. 
+    password = input('Please enter a valid password: ')
+    while isValidPassword(password) == False:
+        print('')
+        print(password + ' is invalid')
+        print('The passowrd must meet the criteria: ')
+        print('- At least 8 characters long')
+        print('- Contains at least one uppercase letter')
+        print('- Contains at least one lowercase letter')
+        print('- Contains at least one number')
+        print('')
+        password = input('Please enter a valid password: ')
+    print('Password created successfully')
+    return password
+
 def isValidPassword(password):
     # Create a function that takes in a password and returns True if the password is valid, False otherwise
     # - At least 8 characters long
@@ -83,31 +108,6 @@ def isValidPassword(password):
 
     result = all(item == True for item in isValid.values())
     return result
-
-def lab2Question5():
-    # Create a function* that asks a user to enter a password that meets the following criteria:
-    # - At least 8 characters long
-    # - Contains at least one uppercase letter
-    # - Contains at least one lowercase letter
-    # - Contains at least one number
-    # Keep asking the user to enter a password until they enter a valid password.
-    # Return the valid password.
-    # *Note: This function should call another function, called isValidPassword(password), 
-    # that takes in a password and returns True if the password is valid, False otherwise.
-    # You will need to make that function, exactly as described above. 
-    password = input('Please enter a valid password: ')
-    while isValidPassword(password) == False:
-        print('')
-        print(password + ' is invalid')
-        print('The passowrd must meet the criteria: ')
-        print('- At least 8 characters long')
-        print('- Contains at least one uppercase letter')
-        print('- Contains at least one lowercase letter')
-        print('- Contains at least one number')
-        print('')
-        password = input('Please enter a valid password: ')
-    print('Password created successfully')
-    return password
 
 lab2Question5()
 
